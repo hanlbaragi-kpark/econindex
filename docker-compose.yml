@@ -1,0 +1,37 @@
+version: '2'
+
+services:
+  db:
+    image: mysql:5.7
+    container_name: django_db
+    ports:
+      - "3306:3306"
+    volumes:
+      - persistent:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=root123
+      - MYSQL_DATABASE=mydb
+  web:
+    build: .
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - $PWD:/code
+    environment:
+      - DJANGO_DEBUG=True
+      - DJANGO_DB_HOST=django_db
+      - DJANGO_DB_PORT=3306
+      - DJANGO_DB_NAME=mydb
+      - DJANGO_DB_USERNAME=root
+      - DJANGO_DB_PASSWORD=root123
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    restart: always
+    ports:
+      - "8080:80"
+
+volumes:
+  persistent:
