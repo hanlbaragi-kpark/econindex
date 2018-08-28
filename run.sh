@@ -8,7 +8,7 @@ if [[ ! -z $command ]]; then
         docker-compose build --force-rm --build-arg USER_ID=$(id -u) --build-arg USER_NAME=$(id -un) web
         ;;
     startproject)
-        docker run --rm -u $(id -u):$(id -g) -v $PWD:/code djangoenv_web django-admin.py startproject $2 .
+        docker-compose run --rm -u $(id -u):$(id -g) web django-admin.py startproject $2 .
         ;;
     start)
         docker-compose up -d
