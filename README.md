@@ -64,6 +64,22 @@ docker-compose.yml  Dockerfile  manage.py  mysite  README.md  run.sh
 
 mysite/settings.py 파일을 수정한다.
 
+django-extentions 와 django-tables2 등을 사용하기 위해 `INSTALLED_APPS` 를 아래와 같이 수정한다.
+```python
+INSTALLED_APPS = [
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    'django_extensions',
+    'django_tables2',
+    'django_filters',
+    'crispy_forms',
+]
+```
+
 MySQL 을 사용할 것이므로 `DATABASES` 를 아래와 같이 수정한다.
 아래에서 사용하는 환경 변수를은 docker-compose.yml 파일에서 정의하고 있다.
 ```python
