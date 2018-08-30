@@ -19,6 +19,9 @@ RUN pip install -i http://pypi.gocept.com/simple --trusted-host pypi.gocept.com 
 RUN pip install -i http://pypi.gocept.com/simple --trusted-host pypi.gocept.com django-extensions
 RUN pip install -i http://pypi.gocept.com/simple --trusted-host pypi.gocept.com Werkzeug
 RUN pip install -i http://pypi.gocept.com/simple --trusted-host pypi.gocept.com pygraphviz
+RUN pip install -i http://pypi.gocept.com/simple --trusted-host pypi.gocept.com django-tables2
+RUN pip install -i http://pypi.gocept.com/simple --trusted-host pypi.gocept.com django-filter
+RUN pip install -i http://pypi.gocept.com/simple --trusted-host pypi.gocept.com django-crispy-forms
 
 # add user : modify user ID & user name for you
 ARG USER_ID
