@@ -1,5 +1,3 @@
-# E500FarmManager
-
 ## Docker + Django 개발환경
 
 Docker 1.8 + Django ? + MySQL 5.7 으로 구성.
